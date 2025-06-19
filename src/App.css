@@ -1,38 +1,180 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5; 
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Principal*/
+.container-app-clima {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh; 
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+}
+
+/* Estilos para o formulário de busca */
+.form-cidade {
+  display: flex;
+  gap: 10px; 
+  margin-bottom: 30px;
+}
+
+.input-cidade {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1.1em;
+  width: 250px; 
+  outline: none; /* Remover borda de foco padrão */
+  transition: border-color 0.3s ease;
+}
+
+.input-cidade:focus {
+  border-color: #007bff; /* Borda azul ao focar */
+}
+
+.botao-buscar {
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.botao-buscar:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.botao-buscar:active {
+  transform: translateY(0);
+}
+
+
+.card-clima {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin-top: 20px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card-clima:hover {
+  transform: translateY(-5px);
+}
+
+.card-clima h2 {
+  margin-top: 0;
+  color: #34495e;
+  font-size: 2em;
+}
+
+.temperatura {
+  font-size: 4em;
+  font-weight: bold;
+  color: #e74c3c; 
+  margin: 10px 0;
+}
+
+.descricao-clima {
+  font-size: 1.5em;
+  color: #7f8c8d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.icone-clima {
+  width: 80px; 
+  height: 80px;
+}
+
+.sensacao-termica,
+.umidade,
+.velocidade-vento {
+  font-size: 1.1em;
+  margin: 8px 0;
+  color: #555;
+}
+
+/* Mensagens de status e erro */
+.mensagem-status {
+  font-size: 1.2em;
+  color: #28a745; /* sucesso */
+  margin-top: 20px;
+}
+
+.mensagem-erro {
+  font-size: 1.2em;
+  color: #dc3545; /* erro */
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/*Telas menores*/
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
   }
-  to {
-    transform: rotate(360deg);
+  .form-cidade {
+    flex-direction: column;
+    width: 80%;
+  }
+  .input-cidade {
+    width: 100%;
+  }
+  .botao-buscar {
+    width: 100%;
+  }
+  .card-clima {
+    width: 90%;
+    padding: 30px;
+  }
+  .temperatura {
+    font-size: 3em;
+  }
+  .descricao-clima {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-app-clima {
+    padding: 10px;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+  .card-clima {
+    padding: 20px;
+  }
+  .temperatura {
+    font-size: 2.5em;
+  }
+  .descricao-clima {
+    font-size: 1em;
   }
 }
